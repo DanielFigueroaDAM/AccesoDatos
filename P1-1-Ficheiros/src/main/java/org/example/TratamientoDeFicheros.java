@@ -1,6 +1,7 @@
 package org.example;
 
 import java.io.File;
+import java.util.Arrays;
 
 public class TratamientoDeFicheros {
     /**
@@ -71,4 +72,126 @@ public class TratamientoDeFicheros {
         }
         return false;
     }
+    /**
+     * Comprueba los permisos de lectura y escritura de un fichero
+     * @author Daniel Figueroa Vidal
+     * @param dirName
+     * @param fileName
+     * @return void
+     */
+    public static void modoAcceso(String dirName, String fileName){
+        File file = new File(dirName, fileName);
+        if(file.exists()){
+            if (file.canRead())
+                System.out.println("lectura si");
+            else
+                System.out.println("lectura non");
+            if (file.canWrite())
+                System.out.println("escritura si");
+            else
+                System.out.println("escritura non");
+        }
+    }
+
+    /**
+     * Dada la ruta absoluta de un archivo, calcula su lonxitude en bytes
+     * @author Daniel Figueroa Vidal
+     * @param dirName
+     * @param fileName
+     * @return void
+     */
+    public static void calculaLonxitude(String dirName, String fileName){
+        File file = new File(dirName, fileName);
+        if(file.exists()){
+            System.out.println(file.length());
+        }
+
+    }
+    /**
+     * Hacer que un fichero sea de solo lectura
+     * @author Daniel Figueroa Vidal
+     * @param dirName
+     * @param fileName
+     * @return true si se ha podido cambiar a solo lectura, false en caso contrario
+     */
+    public static boolean mLectura(String dirName, String fileName){
+        File file = new File(dirName, fileName);
+        if(file.exists() && file.canRead()){
+            return file.setReadOnly();
+        }
+        return false;
+    }
+    /**
+     * Hacer que un fichero sea de lectura y escritura
+     * @author Daniel Figueroa Vidal
+     * @param dirName
+     * @param fileName
+     * @return true si se ha podido cambiar a lectura y escritura, false en caso contrario
+     */
+    public static boolean mEscritura(String dirName, String fileName){
+        File file = new File(dirName, fileName);
+        if(file.exists() && file.canWrite()){
+            return file.setWritable(true);
+        }
+        return false;
+    }
+    /**
+     * Borra un fichero si existe
+     * @param dirName
+     * @param fileName
+     */
+    public static void borrarFichero(String dirName, String fileName) {
+        File file = new File(dirName, fileName);
+        if (file.exists()) {
+            file.delete();
+        } else {
+            System.out.println("Fichero inexistente");
+        }
+    }
+    /**
+     * Borra un directorio si existe
+     * @param dirName
+     * @author Daniel Figueroa Vidal
+     */
+    public static void borrarDirectorio(String dirName) {
+        File file = new File(dirName);
+        if (file.exists()) {
+            file.delete();
+        } else {
+            System.out.println("ruta inexistente ou con descencencia");
+        }
+    }
+    /**
+     * Lista el contenido de un directorio
+     * @param dirName
+     * @author Daniel Figueroa Vidal
+     */
+    public static void mContido(String dirName){
+        File file = new File(dirName);
+        String [] ficheros = file.list();
+        if (ficheros == null)
+            System.out.println("No es un directorio o no se puede acceder a el.");
+        else
+            Arrays.stream(ficheros).forEach(System.out::println); // Usando programación funcional, no lo hice con IA
+    }
+    /**
+     * Mostrar archivos y subdirectorios del directorio.
+     * @param file
+     * @author Daniel Figueroa Vidal
+     */
+    public static void recur(File file) {
+        if (file.isDirectory()) {
+            System.out.println("Directorio: " + file.getAbsolutePath());
+            File[] ficheros = file.listFiles();
+            if (ficheros != null) {
+                for (File f : ficheros) {
+                    System.out.print("   " + f.getName());
+                    recur(f);
+                }
+                System.out.print("\n");
+            }
+        }
+    }
+
+
 }
