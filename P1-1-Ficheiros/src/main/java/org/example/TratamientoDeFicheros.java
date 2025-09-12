@@ -126,7 +126,7 @@ public class TratamientoDeFicheros {
         return false;
     }
     /**
-     * Hacer que un fichero sea de lectura y escritura
+     * Hacer que un fichero sea de escritura
      * @author Daniel Figueroa Vidal
      * @param dirName
      * @param fileName
