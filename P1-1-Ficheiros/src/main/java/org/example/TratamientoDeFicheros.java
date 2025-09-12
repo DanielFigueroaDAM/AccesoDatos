@@ -77,9 +77,9 @@ public class TratamientoDeFicheros {
      * @author Daniel Figueroa Vidal
      * @param dirName
      * @param fileName
-     * @return void
+     * @return true si existe, false si no existe
      */
-    public static void modoAcceso(String dirName, String fileName){
+    public static boolean modoAcceso(String dirName, String fileName){
         File file = new File(dirName, fileName);
         if(file.exists()){
             if (file.canRead())
@@ -90,7 +90,9 @@ public class TratamientoDeFicheros {
                 System.out.println("escritura si");
             else
                 System.out.println("escritura non");
+            return true;
         }
+        return false;
     }
 
     /**
@@ -98,13 +100,15 @@ public class TratamientoDeFicheros {
      * @author Daniel Figueroa Vidal
      * @param dirName
      * @param fileName
-     * @return void
+     * @return true si existe, false si no existe
      */
-    public static void calculaLonxitude(String dirName, String fileName){
+    public static boolean calculaLonxitude(String dirName, String fileName){
         File file = new File(dirName, fileName);
         if(file.exists()){
             System.out.println(file.length());
+            return true;
         }
+        return false;
 
     }
     /**
@@ -139,13 +143,15 @@ public class TratamientoDeFicheros {
      * Borra un fichero si existe
      * @param dirName
      * @param fileName
+     * @return true si existe, false si no existe
      */
-    public static void borrarFichero(String dirName, String fileName) {
+    public static boolean borrarFichero(String dirName, String fileName) {
         File file = new File(dirName, fileName);
         if (file.exists()) {
-            file.delete();
+            return file.delete();
         } else {
             System.out.println("Fichero inexistente");
+            return false;
         }
     }
     /**
