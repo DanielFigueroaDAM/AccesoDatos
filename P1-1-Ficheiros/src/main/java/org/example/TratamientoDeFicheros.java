@@ -181,7 +181,7 @@ public class TratamientoDeFicheros {
         if (ficheros == null)
             System.out.println("No es un directorio o no se puede acceder a el.");
         else
-            Arrays.stream(ficheros).forEach(System.out::println); // Usando programación funcional, no lo hice con IA
+            Arrays.stream(ficheros).forEach(System.out::println);// Usando programación funcional, no lo hice con IA
     }
     /**
      * Mostrar archivos y subdirectorios del directorio.

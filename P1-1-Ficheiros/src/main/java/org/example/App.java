@@ -7,7 +7,7 @@ public class App {
     static String products2_txt = "/home/dam/IdeaProjects/AccesoDatos/P1-1-Ficheiros/src/arquivosdir/subdir/Products2.txt";
 
     public static void main(String[] args) {
-        ejercicio4();
+        ejercicio5();
     }
     public static void ejercicio1(){
         TratamientoDeFicheros.crearDirectorio(arquivosdir);
@@ -24,5 +24,10 @@ public class App {
     public static void ejercicio4(){
         TratamientoDeFicheros.mContido(arquivosdir);
     }
+    public static void ejercicio5(){
+        TratamientoDeFicheros.modoAcceso(arquivosdir,"Products1.txt");
+        TratamientoDeFicheros.calculaLonxitude(arquivosdir,"Products1.txt");
+    }
+
 
 }
