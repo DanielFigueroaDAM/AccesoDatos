@@ -27,6 +27,10 @@ public class App {
     public static void ejercicio5(){
         TratamientoDeFicheros.modoAcceso(arquivosdir,"Products1.txt");
         TratamientoDeFicheros.calculaLonxitude(arquivosdir,"Products1.txt");
+        // prueba ola
+    }
+    public static void ejercicio6(){
+        TratamientoDeFicheros.mLectura(arquivosdir,"Products1.txt");
     }
 
 
