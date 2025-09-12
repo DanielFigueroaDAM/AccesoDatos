@@ -143,7 +143,7 @@ public class TratamientoDeFicheros {
      * Borra un fichero si existe
      * @param dirName
      * @param fileName
-     * @return true si existe, false si no existe
+     * @return true si se pudo borrar el fichero, false si no se pudo
      */
     public static boolean borrarFichero(String dirName, String fileName) {
         File file = new File(dirName, fileName);
@@ -158,13 +158,16 @@ public class TratamientoDeFicheros {
      * Borra un directorio si existe
      * @param dirName
      * @author Daniel Figueroa Vidal
+     * @return true si se pudo borrar el directorio, flase si no se pudo borrar
      */
-    public static void borrarDirectorio(String dirName) {
+    public static boolean borrarDirectorio(String dirName) {
         File file = new File(dirName);
         if (file.exists()) {
-            file.delete();
+            return file.delete();
         } else {
+
             System.out.println("ruta inexistente ou con descencencia");
+            return false;
         }
     }
     /**
@@ -201,3 +204,4 @@ public class TratamientoDeFicheros {
 
 
 }
+
