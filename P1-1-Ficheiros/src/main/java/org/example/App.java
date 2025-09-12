@@ -7,7 +7,7 @@ public class App {
     static String products2_txt = "/home/dam/IdeaProjects/AccesoDatos/P1-1-Ficheiros/src/arquivosdir/subdir/Products2.txt";
 
     public static void main(String[] args) {
-        ejercicio3();
+        ejercicio4();
     }
     public static void ejercicio1(){
         TratamientoDeFicheros.crearDirectorio(arquivosdir);
@@ -22,7 +22,7 @@ public class App {
         System.out.println(TratamientoDeFicheros.crearFichero(subdir,"product2_txt"));
     }
     public static void ejercicio4(){
-
+        TratamientoDeFicheros.mContido(arquivosdir);
     }
 
 }
