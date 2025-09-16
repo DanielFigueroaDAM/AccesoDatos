@@ -134,7 +134,7 @@ public class TratamientoDeFicheros {
      */
     public static boolean mEscritura(String dirName, String fileName){
         File file = new File(dirName, fileName);
-        if(file.exists() && file.canWrite()){
+        if(file.exists() && !file.canWrite()){
             return file.setWritable(true);
         }
         return false;
