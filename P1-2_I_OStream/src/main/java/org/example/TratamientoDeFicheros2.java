@@ -1,0 +1,33 @@
+package org.example;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class TratamientoDeFicheros2 {
+    /**
+     * Escribe el contenido de un fichero en otro fichero, sustituyendo el contenido del fichero de destino.
+     * byte a byte.
+     * @param ficheroOrigen
+     * @param ficheroDestino
+     */
+    public static void escribirFicheroAFichero(String ficheroOrigen, String ficheroDestino){
+        try {
+            File fOrigen = new File(ficheroOrigen);
+            File fDestino = new File(ficheroDestino);
+            FileInputStream origen = new FileInputStream(fOrigen);
+            FileOutputStream destino = new FileOutputStream(fDestino);
+            int byteLeido;
+            while ((byteLeido = origen.read()) != -1) {
+                destino.write(byteLeido);
+            }
+            origen.close();
+            destino.close();
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
+}
