@@ -7,10 +7,11 @@ public class TratamientoDeFicheros4 {
     public static void escribiendoCadenas(String cadena, String archivo){
         DataOutputStream salida = null;
         try {
-            salida = new DataOutputStream(new FileOutputStream(archivo, true));
+            FileOutputStream fichero;
+            salida = new DataOutputStream(fichero = new FileOutputStream(archivo, true));
             salida.writeUTF(cadena);
             System.out.println("Escribiendo la cadena: "+cadena);
-            System.out.println("Tamaño del fichero: "+salida.size()); // esto no va, preguntar al profesor como funciona¿clase File?
+            System.out.println("Tamaño del fichero: "+fichero.()); // esto no va, preguntar al profesor como funciona¿clase File?
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
