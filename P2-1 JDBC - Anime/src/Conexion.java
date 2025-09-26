@@ -9,15 +9,14 @@ public class Conexion {
         String usuario = "postgres";
         String contrasinal = "admin";
         Connection conn = null;
-        
+
         try {
-           conn = DriverManager.getConnection(url,usuario, contrasinal);
+            conn = DriverManager.getConnection(url, usuario, contrasinal);
             System.out.println("✅ Conexión establecida correctamente.");
         } catch (SQLException e) {
-            System.out.println("Error al conectar a la bd" + e);
-        
-        
-    }
+            System.out.println("❌ Error al conectar a la bd: " + e.getMessage());
+        }
+
         return conn;
     }
 }
