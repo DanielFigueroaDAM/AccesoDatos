@@ -20,20 +20,21 @@ public class TratamientoDeFicheros4 {
                 try {
                     salida.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println( "Error E/S: " + e.getMessage() );
                 }
             }
         }
     }
     public static void leyendoCadenas(String archivo){
-        try {
-            DataInputStream l1 = new DataInputStream(new FileInputStream(archivo));
-            while (true){
+        try (DataInputStream l1 = new DataInputStream(new FileInputStream(archivo))) {
+            while (l1.available() > 0) {
+                System.out.println("quedan: " + l1.available() + " bytes por ler");
                 String s = l1.readUTF();
-                System.out.println(s);
+                System.out.println("cadea: " + s);
             }
+            System.out.println("Xa non queda nada por ler");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println( "Error E/S: " + e.getMessage() );
         }
     }
 }

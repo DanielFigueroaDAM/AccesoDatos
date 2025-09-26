@@ -9,5 +9,6 @@ public class Main {
         //TratamientoDeFicheros2.añadirFicheroAFichero("paloma1.jpg", "periquito1.jpg");
         //TratamientoDeFicheros3.escribirFicheroAFicheroBuffered("texto1.txt", "texto2.txt");
         TratamientoDeFicheros4.escribiendoCadenas("o tempo está xélido", "texto3.txt");
+        TratamientoDeFicheros4.leyendoCadenas("texto3.txt");
     }
 }
