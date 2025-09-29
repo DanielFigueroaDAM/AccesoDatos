@@ -11,8 +11,6 @@ public class TratamientoDeFicheros4 {
             FileOutputStream fichero;
             salida = new DataOutputStream(fichero = new FileOutputStream(archivoF, true));
             salida.writeUTF(cadena);
-            salida.writeUTF(cadena);
-            salida.writeUTF(cadena);
             System.out.println("Escribiendo la cadena: "+cadena);
             System.out.println("Tamaño del fichero: "+fichero.getChannel().size());
         } catch (IOException e) {
