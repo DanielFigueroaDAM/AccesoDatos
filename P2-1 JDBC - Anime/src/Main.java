@@ -7,7 +7,7 @@ public class Main {
         //
         Connection conn = Conexion.conexion();
         if (conn != null) {
-            System.out.println("A conexión funciona! 🎉");
+            System.out.println("Conexión establecida correctamente.");
         }
         
     }
