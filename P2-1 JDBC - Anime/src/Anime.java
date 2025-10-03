@@ -1,34 +1,36 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 public class Anime {
     //nombre, descripcion, fecha, puntuacion
     private String nombre;
     private String descripcion;
-    private String fecha;
+    private Date fecha;
     private int puntuacion;
 
-    public Anime(String nombre, String descripcion, String fecha, int puntuacion) {
+    public Anime(String nombre, String descripcion, Date fecha, int puntuacion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.puntuacion = puntuacion;
     }
-//    public String dateToString(Date dataD) {
-//        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-//        return formato.format(dataD);
-//    }
-//    public Date stringToDate(String dataStr) {
-//        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-//        try {
-//            java.util.Date dataUtil = formato.parse(dataStr);
-//            return new Date(dataUltil.getTime());
-//        } catch (ParseException e) {
-//            System.out.println("petou " + e.getMessage());
-//            return null;
-//        }
-//    }
+    public Anime() {
+    }
+    public String dateToString(Date dataD) {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        return formato.format(dataD);
+    }
+    public Date stringToDate(String dataStr) {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            java.util.Date dataUtil = formato.parse(dataStr);
+            return new Date(dataUtil.getTime());
+        } catch (ParseException e) {
+            System.out.println("petou " + e.getMessage());
+            return null;
+        }
+    }
 
     public String getNombre() {
         return nombre;
@@ -46,11 +48,11 @@ public class Anime {
         this.descripcion = descripcion;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
