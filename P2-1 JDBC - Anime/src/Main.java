@@ -10,19 +10,19 @@ public class Main {
         }
         Anime fecha = new Anime();
 
-
-        AnimeSql.insertarAnime(new Anime("Naruto", "Anime de ninjas", fecha.stringToDate("2002-02-02"), 9));
-
-        AnimeSql.leerBaseDatos().forEach(System.out::println);
+//        System.out.println("--------------------------------");
+//        AnimeSql.insertarAnime(new Anime("Naruto", "Anime de ninjas", fecha.stringToDate("2002-02-02"), 9));
+//        System.out.println("--------------------------------");
+//        AnimeSql.leerBaseDatos().forEach(System.out::println);
+//        System.out.println("--------------------------------");
+//        AnimeSql.leerBaseDatosFiltrada( "Naruto" ).forEach(System.out::println);
+//        System.out.println("--------------------------------");
+//        AnimeSql.actualizarAnime(new Anime("Naruta", "Anime de ninjas", fecha.stringToDate("2002-02-02"), 9), "Naruto");
+//        System.out.println("--------------------------------");
+//        AnimeSql.leerBaseDatos().forEach(System.out::println);
         System.out.println("--------------------------------");
-        AnimeSql.leerBaseDatosFiltrada( "Naruto" ).forEach(System.out::println);
-
-        AnimeSql.actualizarAnime(new Anime("Naruta", "Anime de ninjas", fecha.stringToDate("2002-02-02"), 9), "Naruto");
-
-        AnimeSql.leerBaseDatos().forEach(System.out::println);
-
         AnimeSql.eliminarAnime("Naruta");
-
+        System.out.println("--------------------------------");
         AnimeSql.leerBaseDatos().forEach(System.out::println);
 
     }
