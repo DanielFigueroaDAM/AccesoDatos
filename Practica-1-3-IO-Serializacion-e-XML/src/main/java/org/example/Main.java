@@ -5,6 +5,8 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         TratamientoDeFicherosSerial.escribirProducto(new Producto("Leche", 1.5, 10));
-
+        Producto leido = new Producto("", 0, 0);
+        TratamientoDeFicherosSerial.leerProducto(leido);
+        System.out.println(leido);
     }
 }
