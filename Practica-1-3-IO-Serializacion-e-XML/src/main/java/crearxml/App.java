@@ -34,7 +34,7 @@ public class App {
             GeneradorXML.finElemento();
 
         } catch (XMLStreamException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error al crear el fichero XML");
         }
 
     }
