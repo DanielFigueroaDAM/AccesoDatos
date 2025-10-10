@@ -1,3 +1,5 @@
+package Serializar;
+
 import Objetos.Vehiculo;
 
 import java.io.*;
