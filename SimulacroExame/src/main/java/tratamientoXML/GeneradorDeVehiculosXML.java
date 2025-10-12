@@ -9,20 +9,24 @@ import java.util.ArrayList;
 
 public class GeneradorDeVehiculosXML {
 
-    public static void escribirVehiculosXML(ArrayList<Vehiculo> listaVehiculos){
+    public static void escribirVehiculosXML(ArrayList<Vehiculo> listaVehiculos) throws XMLStreamException {
+        GeneradorXML.escribirCabecera();
+        GeneradorXML.escirbirElemento("Vehiculos");
         for (Vehiculo v : listaVehiculos){
             try {
+
                 escribirVehiculoXML(v);
             } catch (XMLStreamException e) {
                 System.out.println("Problema en la escritura de vehiculos");
             }
         }
+        GeneradorXML.finElemento();
 
     }
 
     public static void escribirVehiculoXML(Vehiculo vehiculo) throws XMLStreamException {
-        GeneradorXML.escribirCabecera();
-        GeneradorXML.escirbirElemento("Vehiculos");
+
+
             GeneradorXML.escirbirElemento("Vehiculo");
             GeneradorXML.escirbirElemento("Id");
             GeneradorXML.contenidoElemento(String.valueOf(vehiculo.getId()));
@@ -40,6 +44,6 @@ public class GeneradorDeVehiculosXML {
             GeneradorXML.contenidoElemento(vehiculo.getDescripcion());
             GeneradorXML.finElemento();
             GeneradorXML.finElemento();
-        GeneradorXML.finElemento();
+
     }
 }

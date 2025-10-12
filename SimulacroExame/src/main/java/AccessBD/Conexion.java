@@ -9,7 +9,7 @@ public class Conexion {
 
 
     public static Connection conexion() {
-        String url = "jdbc:postgresql://10.0.9.100/vehiculosbd";
+        String url = "jdbc:postgresql://192.168.121.4/postgres";
         String usuario = "postgres";
         String contrasinal = "admin";
         Connection conect = null;

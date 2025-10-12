@@ -9,7 +9,14 @@ public class Vehiculo implements Serializable {
     private String descripcion;
     private int id;
 
-    public Vehiculo(int id,String modelo, String marca, int ano, String descripcion) {
+    public Vehiculo(String modelo, String marca, int ano, String descripcion) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+        this.descripcion = descripcion;
+    }
+
+    public Vehiculo(int id, String modelo, String marca, int ano, String descripcion) {
         this.id = id;
         this.modelo = modelo;
         this.marca = marca;

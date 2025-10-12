@@ -11,7 +11,7 @@ public class GeneradorXML {
     private static XMLStreamWriter iniciador(){
         XMLOutputFactory escritor = XMLOutputFactory.newInstance();
         try {
-            XMLStreamWriter writer = escritor.createXMLStreamWriter(new FileOutputStream("autores.xml"));
+            XMLStreamWriter writer = escritor.createXMLStreamWriter(new FileOutputStream("vehiculos.xml"));
             return writer;
         } catch (XMLStreamException e) {
             System.out.println("error de XML Stream Exception");

@@ -16,7 +16,7 @@ public class SerializarEnFicheros {
     }
     public static ArrayList<Vehiculo> desserializarVehiculos(){
         try(ObjectInputStream lector = new ObjectInputStream(
-                new FileInputStream("serial.dat"))) {
+                new FileInputStream("serialVehiculos.dat"))) {
             ArrayList<Vehiculo> vehiculos = (ArrayList<Vehiculo>) lector.readObject();
             return vehiculos;
         } catch (IOException | ClassNotFoundException e) {

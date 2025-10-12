@@ -5,13 +5,13 @@ import Objetos.Vehiculo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AccesoABaseDeDatos {
 
-    public static ArrayList<Vehiculo> setVehiculosTable(){
+    public static ArrayList<Vehiculo> getVehiculosTable(){
         ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
-        Vehiculo vehiculo;
         String sql = "SELECT * FROM vehiculo";
         PreparedStatement ps;
         try (Connection conn = Conexion.conexion()) {
@@ -27,7 +27,7 @@ public class AccesoABaseDeDatos {
             }
             return listaVehiculos;
         } catch (Exception e) {
-            System.out.println("Error al leer animes: " + e.getMessage());
+            System.out.println("Error al leer vehiculos: " + e.getMessage());
             return null;
         }
     }
@@ -43,7 +43,7 @@ public class AccesoABaseDeDatos {
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
         } catch (Exception e) {
-            System.out.println("Error al insertar anime: " + e.getMessage());
+            System.out.println("Error al insertar vehiculo: " + e.getMessage());
             return false;
         }
     }
@@ -75,8 +75,35 @@ public class AccesoABaseDeDatos {
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
         } catch (Exception e) {
-            System.out.println("Error al eliminar anime: " + e.getMessage());
+            System.out.println("Error al eliminar vehiculo: " + e.getMessage());
             return false;
+        }
+    }
+    public static boolean insertarInventarioTenda(Vehiculo vehiculo, double prezoMayorista,double precioVenta, int porcentajeOferta) {
+        String sql = "INSERT INTO InventarioTenda (IdVehiculo,PrezoMayorista,PrezoVenta,PorcentaxeOferta) VALUES (?, ?, ?, ?)";
+        PreparedStatement ps;
+        try (Connection conn = Conexion.conexion()) {
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,vehiculo.getId());
+            ps.setDouble(2,prezoMayorista);
+            ps.setDouble(3,precioVenta);
+            ps.setInt(4,porcentajeOferta);
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0;
+        } catch (Exception e) {
+            System.out.println("Error al insertar Inventario: " + e.getMessage());
+            return false;
+        }
+    }
+    public static void actualizarPorcentaxeOferta(int aumento){
+        String sql = "UPDATE InventarioTenda SET PorcentaxeOferta = PorcentaxeOferta + ?";
+        PreparedStatement ps;
+        try(Connection conn = Conexion.conexion()) {
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1,aumento);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
