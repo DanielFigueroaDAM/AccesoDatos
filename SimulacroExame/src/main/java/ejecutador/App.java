@@ -36,8 +36,4 @@ public class App {
         System.out.println(AccesoABaseDeDatos.getVehiculosTable());
     }
 
-
-
-
-
 }
