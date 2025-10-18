@@ -7,7 +7,14 @@ public class Libro {
     private Integer AnoPublicacion;
     private String Genero;
 
-    public Libro(Integer id, String autor, String titulo, Integer anoPublicacion, String genero) {
+    public Libro(String titulo, String autor, Integer anoPublicacion, String genero) {
+        Titulo = titulo;
+        Autor = autor;
+        AnoPublicacion = anoPublicacion;
+        Genero = genero;
+    }
+
+    public Libro(Integer id,String titulo, String autor, Integer anoPublicacion, String genero) {
         Id = id;
         Autor = autor;
         Titulo = titulo;
