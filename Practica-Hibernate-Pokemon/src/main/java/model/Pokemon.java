@@ -10,7 +10,10 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPokemon;
+
+    @Column(name = "nome", nullable = false, length = 50)
     private String nome;
+
     private Date fechaNacimiento;
     private int pokedexEntry;
     private int adestrador;

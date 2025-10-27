@@ -9,11 +9,8 @@ public class App {
         try {
             // Crea el SessionFactory a partir del archivo de configuración
             SessionFactory factory = new Configuration().configure("properties.xml").buildSessionFactory();
-
             // Abre una sesión
             Session session = factory.openSession();
-
-
 
             // Cierra sesión y factory
             session.close();
