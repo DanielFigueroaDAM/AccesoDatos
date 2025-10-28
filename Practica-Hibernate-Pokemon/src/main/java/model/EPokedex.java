@@ -1,12 +1,13 @@
 package model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 @Entity
 @Table(name = "Pokedex")
 public class EPokedex {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private Long idPokedex;
 
     @Column(name = "nome",nullable = false,length = 50)
@@ -17,6 +18,15 @@ public class EPokedex {
 
     @Column(name = "Misc")
     private String misc;
+
+    public EPokedex() {
+    }
+
+    public EPokedex(String nome, double peso, String misc) {
+        this.nome = nome;
+        this.peso = peso;
+        this.misc = misc;
+    }
 
     public EPokedex(Long idPokedex, String nome, double peso, String misc) {
         this.idPokedex = idPokedex;
