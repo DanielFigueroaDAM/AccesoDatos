@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 @Entity
 @Table(name = "Pokedex")
-public class EPokedex {
+public class Pokedex {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,16 +19,16 @@ public class EPokedex {
     @Column(name = "Misc")
     private String misc;
 
-    public EPokedex() {
+    public Pokedex() {
     }
 
-    public EPokedex(String nome, double peso, String misc) {
+    public Pokedex(String nome, double peso, String misc) {
         this.nome = nome;
         this.peso = peso;
         this.misc = misc;
     }
 
-    public EPokedex(Long idPokedex, String nome, double peso, String misc) {
+    public Pokedex(Long idPokedex, String nome, double peso, String misc) {
         this.idPokedex = idPokedex;
         this.nome = nome;
         this.peso = peso;
@@ -69,7 +69,7 @@ public class EPokedex {
 
     @Override
     public String toString() {
-        return "EPokedex{" +
+        return "Pokedex{" +
                 "idPokedex=" + idPokedex +
                 ", nome='" + nome + '\'' +
                 ", peso=" + peso +

@@ -1,14 +1,14 @@
 package services;
 
 import config.HibernateConfig;
-import model.EPokedex;
+import model.Pokedex;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class PokedexServices {
-    public static void crearEnPokedex(EPokedex pokedex){
+    public static void crearEnPokedex(Pokedex pokedex){
         try(Session session = HibernateConfig.getSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
             session.save(pokedex);
@@ -18,9 +18,9 @@ public class PokedexServices {
         }
     }
 
-    public static List<EPokedex> listarPokedex(){
+    public static List<Pokedex> listarPokedex(){
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
-            return session.createQuery("from EPokedex", EPokedex.class).getResultList();
+            return session.createQuery("from Pokedex", Pokedex.class).getResultList();
         } catch (Exception e) {
             System.out.println("Error al leer la lista de pokedex: " + e.getMessage());
             return null;
@@ -30,13 +30,13 @@ public class PokedexServices {
     public static void eliminarTodosDePokedex() {
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-            session.createQuery("DELETE FROM EPokedex").executeUpdate();
+            session.createQuery("DELETE FROM Pokedex").executeUpdate();
             transaction.commit();
         } catch (Exception e) {
             System.out.println("Error al eliminar todos de la pokedex: " + e.getMessage());
         }
     }
-    public static void modificarPokedex(EPokedex pokedex) {
+    public static void modificarPokedex(Pokedex pokedex) {
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             session.update(pokedex);
