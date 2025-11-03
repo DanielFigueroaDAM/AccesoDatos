@@ -30,24 +30,6 @@ public class App {
             PokedexServices.listarPokedex().forEach(System.out::println);
 
 
-
-            Pokedex recogido1 = PokedexServices.listarPokedex().get(0);
-            Pokedex recogido2 = PokedexServices.listarPokedex().get(1);
-
-            recogido1.setPeso(7.0);
-            PokedexServices.modificarPokedex(recogido1);
-
-            recogido2.setPeso(8.0);
-            PokedexServices.modificarPokedex(recogido2);
-
-            PokedexServices.listarPokedex().forEach(System.out::println);
-
-
-            PokedexServices.eliminarTodosDePokedex();
-
-
-            //PokedexServices.eliminarTodosDePokedex();
-            // Cierra sesión y factory
             session.close();
             factory.close();
         } catch (Exception e) {
