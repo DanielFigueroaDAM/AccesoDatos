@@ -6,7 +6,6 @@ import model.Pokedex;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdestradorServices {
@@ -45,6 +44,15 @@ public class AdestradorServices {
             transaction.commit();
         } catch (Exception e) {
             System.out.println("Error al eliminar todos de la adestrador: " + e.getMessage());
+        }
+    }
+
+    public static Adestrador obtenerPorId(int id){
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.get(Adestrador.class, id);
+        } catch (Exception e){
+            System.out.println("Error al obtener adestrador por id: " + e.getMessage());
+            return null;
         }
     }
 }

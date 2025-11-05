@@ -1,9 +1,15 @@
 
+import XmlUtils.XML_Adestrador;
+import XmlUtils.XML_Pokedex;
+import model.Adestrador;
 import model.Pokedex;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import services.AdestradorServices;
 import services.PokedexServices;
+
+import java.text.SimpleDateFormat;
 
 
 public class App {
@@ -13,6 +19,7 @@ public class App {
             SessionFactory factory = new Configuration().configure("properties.xml").buildSessionFactory();
             // Abre una sesión
             Session session = factory.openSession();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 //            PokedexServices.crearEnPokedex(new Pokedex("Pikachu", 6.0, "Eléctrico"));
 //            PokedexServices.crearEnPokedex(new Pokedex("Charmander", 8.5, "Fuego"));
@@ -24,10 +31,21 @@ public class App {
 //            PokedexServices.crearEnPokedex(new Pokedex("Machop", 19.5, "Lucha"));
 //            PokedexServices.crearEnPokedex(new Pokedex("Geodude", 20.0, "Roca/Tierra"));
 //            PokedexServices.crearEnPokedex(new Pokedex("Eevee", 6.5, "Normal"));
+//
+//            AdestradorServices.crearAdestrador(new Adestrador( "Ash Ketchum", sdf.parse("22/02/1990")));
+//            AdestradorServices.crearAdestrador(new Adestrador( "Misty", sdf.parse("09/07/1992")));
+
+//            PokedexServices.listarPokedex().forEach(System.out::println);
+//            AdestradorServices.listarAdestradores().forEach(System.out::println);
+//
+//            XML_Pokedex.pokedexToXML(PokedexServices.listarPokedex());
+//            XML_Adestrador.adestradoresToXML(AdestradorServices.listarAdestradores());
+
+            AdestradorServices.eliminarTodosDeAdestrador();
+            PokedexServices.eliminarTodosDePokedex();
 
 
 
-            PokedexServices.listarPokedex().forEach(System.out::println);
 
 
             session.close();
