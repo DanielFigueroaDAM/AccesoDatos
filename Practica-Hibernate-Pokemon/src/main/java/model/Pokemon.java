@@ -14,15 +14,29 @@ public class Pokemon {
     @Column(name = "nome", nullable = false, length = 50)
     private String nome;
 
-    private Date fechaNacimiento;
+    @Column(name = "nacimiento")
+    private Date nacimiento;
+    @Column(name = "PokedexEntry")
     private int pokedexEntry;
+    @Column(name = "adestrador")
     private int adestrador;
 
-    public Pokemon(String nome, Date fechaNacimiento, int pokedexEntry, int adestrador) {
+    public Pokemon(String nome, Date nacimiento, int pokedexEntry, int adestrador) {
         this.nome = nome;
-        this.fechaNacimiento = fechaNacimiento;
+        this.nacimiento = nacimiento;
         this.pokedexEntry = pokedexEntry;
         this.adestrador = adestrador;
+    }
+
+    public Pokemon(int idPokemon, String nome, Date nacimiento, int pokedexEntry, int adestrador) {
+        this.idPokemon = idPokemon;
+        this.nome = nome;
+        this.nacimiento = nacimiento;
+        this.pokedexEntry = pokedexEntry;
+        this.adestrador = adestrador;
+    }
+
+    public Pokemon() {
     }
 
     public String getNome() {
@@ -41,12 +55,12 @@ public class Pokemon {
         this.idPokemon = idPokemon;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public Date getNacimiento() {
+        return nacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setNacimiento(Date nacimiento) {
+        this.nacimiento = nacimiento;
     }
 
     public int getPokedexEntry() {
@@ -70,7 +84,7 @@ public class Pokemon {
         return "Pokemon{" +
                 "idPokemon=" + idPokemon +
                 ", nome='" + nome + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
+                ", fechaNacimiento=" + nacimiento +
                 ", pokedexEntry=" + pokedexEntry +
                 ", adestrador=" + adestrador +
                 '}';
