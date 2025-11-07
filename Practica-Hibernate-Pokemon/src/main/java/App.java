@@ -1,6 +1,4 @@
 
-import XmlUtils.XML_Adestrador;
-import XmlUtils.XML_Pokedex;
 import model.Adestrador;
 import model.Pokedex;
 import model.Pokemon;
