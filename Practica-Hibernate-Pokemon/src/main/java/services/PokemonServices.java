@@ -5,6 +5,8 @@ import model.Pokemon;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class PokemonServices {
 
     public static void insertarPokemon(Pokemon pokemon){
@@ -44,6 +46,15 @@ public class PokemonServices {
             transaction.commit();
         }catch (Exception e){
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static List<Pokemon> listarPokemons(){
+        try(Session session = HibernateConfig.getSessionFactory().openSession()){
+            return session.createQuery("from Pokemon", Pokemon.class).getResultList();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 

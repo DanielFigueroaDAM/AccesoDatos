@@ -9,29 +9,34 @@ import java.util.Date;
 public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Id")
     private int idPokemon;
 
-    @Column(name = "nome", nullable = false, length = 50)
+    @Column(name = "Nome", nullable = false, length = 50)
     private String nome;
 
-    @Column(name = "nacimiento")
-    private Date nacimiento;
-    @Column(name = "PokedexEntry")
-    private int pokedexEntry;
-    @Column(name = "adestrador")
-    private int adestrador;
+    @Column(name = "Nacemento")
+    private Date nacemento;
 
-    public Pokemon(String nome, Date nacimiento, int pokedexEntry, int adestrador) {
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "PokedexEntry")
+    private Pokedex pokedexEntry;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "Adestrador")
+    private Adestrador adestrador;
+
+    public Pokemon(String nome, Date nacemento, Pokedex pokedexEntry, Adestrador adestrador) {
         this.nome = nome;
-        this.nacimiento = nacimiento;
+        this.nacemento = nacemento;
         this.pokedexEntry = pokedexEntry;
         this.adestrador = adestrador;
     }
 
-    public Pokemon(int idPokemon, String nome, Date nacimiento, int pokedexEntry, int adestrador) {
+    public Pokemon(int idPokemon, String nome, Date nacemento, Pokedex pokedexEntry, Adestrador adestrador) {
         this.idPokemon = idPokemon;
         this.nome = nome;
-        this.nacimiento = nacimiento;
+        this.nacemento = nacemento;
         this.pokedexEntry = pokedexEntry;
         this.adestrador = adestrador;
     }
@@ -55,27 +60,27 @@ public class Pokemon {
         this.idPokemon = idPokemon;
     }
 
-    public Date getNacimiento() {
-        return nacimiento;
+    public Date getNacemento() {
+        return nacemento;
     }
 
-    public void setNacimiento(Date nacimiento) {
-        this.nacimiento = nacimiento;
+    public void setNacemento(Date nacemento) {
+        this.nacemento = nacemento;
     }
 
-    public int getPokedexEntry() {
+    public Pokedex getPokedexEntry() {
         return pokedexEntry;
     }
 
-    public void setPokedexEntry(int pokedexEntry) {
+    public void setPokedexEntry(Pokedex pokedexEntry) {
         this.pokedexEntry = pokedexEntry;
     }
 
-    public int getAdestrador() {
+    public Adestrador getAdestrador() {
         return adestrador;
     }
 
-    public void setAdestrador(int adestrador) {
+    public void setAdestrador(Adestrador adestrador) {
         this.adestrador = adestrador;
     }
 
@@ -84,7 +89,7 @@ public class Pokemon {
         return "Pokemon{" +
                 "idPokemon=" + idPokemon +
                 ", nome='" + nome + '\'' +
-                ", fechaNacimiento=" + nacimiento +
+                ", fechaNacimiento=" + nacemento +
                 ", pokedexEntry=" + pokedexEntry +
                 ", adestrador=" + adestrador +
                 '}';
