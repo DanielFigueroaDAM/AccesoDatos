@@ -12,7 +12,7 @@ public class Libro {
     private String titulo;
 
     @Column(name = "Xenero", length = 50)
-    private String Xenero;
+    private String xenero;
 
     @ManyToOne
     @JoinColumn(name = "AutorId")
@@ -25,14 +25,14 @@ public class Libro {
     public Libro(int id, String titulo, String xenero, Autor autorId, Usuario usuarioId) {
         this.id = id;
         this.titulo = titulo;
-        Xenero = xenero;
+        this.xenero = xenero;
         this.autorId = autorId;
         this.usuarioId = usuarioId;
     }
 
     public Libro(String titulo, String xenero, Autor autorId, Usuario usuarioId) {
         this.titulo = titulo;
-        Xenero = xenero;
+        this.xenero = xenero;
         this.autorId = autorId;
         this.usuarioId = usuarioId;
     }
@@ -57,11 +57,11 @@ public class Libro {
     }
 
     public String getXenero() {
-        return Xenero;
+        return xenero;
     }
 
     public void setXenero(String xenero) {
-        Xenero = xenero;
+        this.xenero = xenero;
     }
 
     public Autor getAutorId() {
@@ -85,7 +85,7 @@ public class Libro {
         return "Libro{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
-                ", Xenero='" + Xenero + '\'' +
+                ", Xenero='" + xenero + '\'' +
                 ", autorId=" + autorId +
                 ", usuarioId=" + usuarioId +
                 '}';
